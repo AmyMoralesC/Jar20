@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Custom fonts ─────────────────────────────────────────────────── */
+/* Add @font-face rules here when you drop font files into src/assets/fonts */
+/* Recommended: MedievalSharp or Cinzel for display, Lato/Inter for body */
+
+@layer base {
+  html, body, #root {
+    @apply h-full w-full overflow-hidden;
+  }
+
+  body {
+    @apply bg-tavern-dark text-parchment font-body antialiased;
+  }
+
+  /* Scrollbar styling for panels */
+  .overflow-y-auto {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.wood.mid') transparent;
+  }
+  .overflow-y-auto::-webkit-scrollbar { width: 4px; }
+  .overflow-y-auto::-webkit-scrollbar-track { background: transparent; }
+  .overflow-y-auto::-webkit-scrollbar-thumb { background-color: theme('colors.wood.mid'); border-radius: 2px; }
+}
+
+@layer components {
+  /* Wood texture overlay — swap url() in Phase 5 for real texture */
+  .wood-texture {
+    background-image: none; /* url('/assets/textures/wood.jpg') */
+    background-size: cover;
+    background-blend-mode: multiply;
+  }
+}
